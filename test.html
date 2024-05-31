@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Best Beaches in the World</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans|Pacifico"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "Open Sans", sans-serif;
+        background: linear-gradient(to bottom, #ffd700, #f4a460);
+        color: #2e4053;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      .wrapper {
+        overflow-y: scroll;
+        height: 100vh;
+      }
+
+      .wrapper::-webkit-scrollbar {
+        display: none;
+      }
+
+      .wrapper {
+        scrollbar-width: none;
+      }
+
+      header {
+        background: linear-gradient(to right, #ff841f, #ffbb4e);
+
+        color: white;
+        padding: 20px 0;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+      main {
+        padding: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      header h1 {
+        font-family: "Black Ops One", sans-serif;
+        font-size: 52px;
+      }
+
+      h2 {
+        font-family: "Black Ops One", sans-serif;
+        font-size: 38px;
+      }
+      h3 {
+        font-family: "Pacifico", cursive;
+      }
+      section {
+        margin-bottom: 40px;
+      }
+      .description-container {
+        background: #f8f9fa9d;
+
+        padding: 30px;
+
+        border-radius: 10px;
+        box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        margin-bottom: 100px;
+      }
+      .description-container p {
+        font-family: "Open Sans", sans-serif;
+        font-size: 14px;
+
+        line-height: 1.6;
+        margin: 0;
+      }
+      .grid-container {
+        display: grid;
+        gap: 50px;
+      }
+      ul {
+        list-style-type: none;
+        padding: 10;
+        padding-left: 0;
+        margin: 0;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 50px;
+      }
+      li {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 500px;
+      }
+      li:before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 30%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 40px;
+        background: #5f3613;
+        border-radius: 50%;
+      }
+      li h3 {
+        margin-top: 150px;
+        text-align: center;
+        font-size: 28px;
+      }
+      li p {
+        margin: 10px 0 0;
+      }
+      h2 {
+        text-align: center;
+      }
+
+      .pink-sands {
+        text-align: center;
+        margin-top: 0px;
+      }
+      .pink-sands {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-top: 45px;
+        margin-bottom: 20px;
+        width: 312px;
+        margin-left: 418px;
+        height: 500px;
+      }
+
+      .pink-sands h3 {
+        margin-top: 150px;
+        text-align: center;
+        font-size: 28px;
+      }
+
+      .pink-sands:before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        left: 30%;
+        transform: translateX(-50%);
+        width: 40px;
+        height: 40px;
+        background: #5f3613;
+        border-radius: 50%;
+      }
+      .p-container {
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.3);
+        padding: 10px;
+        border-radius: 5px;
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+      .beaches-section {
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+        opacity: 0.8;
+        border-radius: 10px;
+        padding: 10px;
+      }
+      @keyframes moveArc {
+        0% {
+          transform: translateY(0) rotate(-5deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(5deg);
+        }
+        100% {
+          transform: translateY(0) rotate(-5deg);
+        }
+      }
+
+      li:hover {
+        animation: moveArc 0.8s ease-in-out infinite;
+        transform-origin: top left 95px;
+      }
+
+      .pink-sands:hover {
+        animation: moveArc 0.9s ease-in-out infinite;
+        transform-origin: top left 95px;
+      }
+
+      .card-wrapper {
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgb(2, 2, 2);
+        position: relative;
+        perspective: 1000px;
+        margin-top: 80px;
+        height: 1000px;
+      }
+
+      .card-header {
+        background: white;
+        padding: 20px;
+        backface-visibility: hidden;
+      }
+
+      .card-content {
+        background: rgba(255, 255, 255, 0.8);
+        padding: 0px;
+        transform: rotateY(180deg);
+        backface-visibility: hidden;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.6s;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+
+      .card-content p {
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        font-size: 18px;
+        color: #4d4d4d;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        animation: textBounce 1s ease-in-out infinite alternate;
+      }
+
+      @keyframes textBounce {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .card-wrapper.flipped .card-content {
+        transform: rotateY(0deg);
+      }
+
+      .card-wrapper.flipped .card-header {
+        transform: rotateY(-180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Best Beaches in the World</h1>
+      </header>
+      <main>
+        <section>
+          <h2 style="text-align: right">Take me to the beach!</h2>
+          <div class="description-container">
+            <p style="font-size: large">
+              <span id="typewriter"></span>
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="left heading" style="text-align: left">Top Beaches</h2>
+
+          <div class="grid-container">
+            <section class="beaches-section">
+              <ul>
+                <li>
+                  <div class="card-wrapper">
+                    <div class="card-header">
+                      <h3>Whitehaven Beach, Australia</h3>
+                    </div>
+                    <div class="card-content">
+                      <p>
+                        Located on Whitsunday Island, Whitehaven Beach is famous
+                        for its stunning white silica sand and turquoise waters.
+                        It's a perfect spot for swimming, sunbathing, and
+                        enjoying the natural beauty of the Great Barrier Reef.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="card-wrapper">
+                    <div class="card-header">
+                      <h3>Grace Bay, Turks and Caicos</h3>
+                    </div>
+                    <div class="card-content">
+                      <p>
+                        Grace Bay is known for its calm, clear waters and
+                        powdery white sand. This beach is ideal for snorkeling,
+                        diving, and enjoying luxury resorts that line its shore.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="card-wrapper">
+                    <div class="card-header">
+                      <h3>Baia do Sancho, Brazil</h3>
+                    </div>
+                    <div class="card-content">
+                      <p>
+                        Baia do Sancho, located on Fernando de Noronha island,
+                        offers stunning cliffs, vibrant marine life, and
+                        crystal-clear waters, making it a paradise for divers
+                        and nature lovers.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="card-wrapper">
+                    <div class="card-header">
+                      <h3>Navagio Beach, Greece</h3>
+                    </div>
+                    <div class="card-content">
+                      <p>
+                        Also known as Shipwreck Beach, Navagio Beach is famous
+                        for the rusting shipwreck that rests on its sands.
+                        Accessible only by boat, this secluded cove is
+                        surrounded by towering cliffs and azure waters.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="card-wrapper">
+                    <div class="card-header">
+                      <h3>Playa Paraiso, Mexico</h3>
+                    </div>
+                    <div class="card-content">
+                      <p>
+                        Playa Paraiso, located in Tulum, offers pristine white
+                        sands and turquoise waters against the backdrop of
+                        ancient Mayan ruins. It's a perfect blend of history and
+                        natural beauty.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="card-wrapper">
+                    <div class="card-header">
+                      <h3>Anse Source d'Argent, Seychelles</h3>
+                    </div>
+                    <div class="card-content">
+                      <p>
+                        Anse Source d'Argent is renowned for its unique granite
+                        boulders, shallow clear waters, and soft white sand.
+                        This beach is perfect for photography, snorkeling, and
+                        relaxation.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="card-wrapper">
+                    <div class="card-header">
+                      <h3>Seven Mile Beach, Cayman Islands</h3>
+                    </div>
+                    <div class="card-content">
+                      <p>
+                        Stretching for seven miles, this beach offers soft coral
+                        sand, clear waters, and numerous activities such as
+                        snorkeling, paddleboarding, and enjoying beachside
+                        restaurants and bars.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="card-wrapper">
+                    <div class="card-header">
+                      <h3>Bora Bora, French Polynesia</h3>
+                    </div>
+                    <div class="card-content">
+                      <p>
+                        Bora Bora is known for its stunning lagoon, overwater
+                        bungalows, and vibrant coral reefs. It's a perfect
+                        destination for honeymooners and those seeking luxury
+                        and tranquility.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+                <li>
+                  <div class="card-wrapper">
+                    <div class="card-header">
+                      <h3>Lanikai Beach, Hawaii</h3>
+                    </div>
+                    <div class="card-content">
+                      <p>
+                        Lanikai Beach features powdery white sand and calm,
+                        clear waters, making it a favorite for swimming,
+                        kayaking, and enjoying the scenic views of the Mokulua
+                        Islands.
+                      </p>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+
+              <section class="pink-sands">
+                <div class="card-wrapper">
+                  <div class="card-header">
+                    <h3>Pink Sands Beach, Bahamas</h3>
+                  </div>
+                  <div class="card-content">
+                    <p>
+                      Pink Sands Beach is famous for its unique pink-hued sand,
+                      clear waters, and serene atmosphere. It's an idyllic spot
+                      for beachcombing, swimming, and relaxing in paradise.
+                    </p>
+                  </div>
+                </div>
+              </section>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const text =
+        "Welcome to our curated list of the best beaches in the world. Whether you're looking for serene white sands, crystal-clear waters, or breathtaking scenery, these beaches offer a little something for everyone. Explore our top picks and discover the beauty that awaits you.";
+      let index = 0;
+      const speed = 20;
+
+      function typeWriter() {
+        if (index < text.length) {
+          document.getElementById("typewriter").innerHTML += text.charAt(index);
+          index++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+
+      window.onload = function () {
+        typeWriter();
+      };
+
+      const cardWrappers = document.querySelectorAll(".card-wrapper");
+
+      cardWrappers.forEach((cardWrapper) => {
+        cardWrapper.addEventListener("click", () => {
+          cardWrapper.classList.toggle("flipped");
+        });
+      });
+    </script>
+  </body>
+</html>
